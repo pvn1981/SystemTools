@@ -8,9 +8,18 @@ namespace ChangeProfilePATH
 {
     static class LocalProfile
     {
+        public static string ReadPATH()
+        {
+            string PATH = "";
+
+            PATH = Environment.GetEnvironmentVariable("PATH", EnvironmentVariableTarget.User);
+
+            return PATH;
+        }
+
         public static void SavePATH(string PATH)
         {
-
+            Environment.SetEnvironmentVariable("PATH", PATH, EnvironmentVariableTarget.User);
         }
     }
 }

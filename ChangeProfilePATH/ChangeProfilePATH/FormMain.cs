@@ -27,13 +27,35 @@ namespace ChangeProfilePATH
 
             if (result == DialogResult.OK)
             {
-                textBoxPATH.Text = folderBrowserDialog.SelectedPath;
+                textBoxPATH.Text += ";" + folderBrowserDialog.SelectedPath;
+
+                // Хак чтобы он выровнил по правому краю
+                textBoxPATH.SelectAll();
+
+                buttonApply.BackColor = SystemColors.Control;
             }
         }
 
         private void buttonApply_Click(object sender, EventArgs e)
         {
-            LocalProfile.SavePATH(textBoxPATH.Text);
+            buttonApply.BackColor = SystemColors.Control;
+            buttonApply.Update();
+
+            try
+            {
+                LocalProfile.SavePATH(textBoxPATH.Text);
+            }
+            catch (Exception exc)
+            {
+                MessageBox.Show(exc.Message);
+            }
+
+            buttonApply.BackColor = Color.LightGreen;
+        }
+
+        private void FormMain_Load(object sender, EventArgs e)
+        {
+            textBoxPATH.Text = LocalProfile.ReadPATH();
         }
     }
 }

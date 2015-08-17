@@ -49,7 +49,6 @@
             this.textBoxPATH.Name = "textBoxPATH";
             this.textBoxPATH.Size = new System.Drawing.Size(397, 20);
             this.textBoxPATH.TabIndex = 1;
-            this.textBoxPATH.TextAlign = System.Windows.Forms.HorizontalAlignment.Right;
             // 
             // buttonChoose
             // 
@@ -82,6 +81,7 @@
             this.Controls.Add(this.labelPATH);
             this.Name = "FormMain";
             this.Text = "Изменить или добавил PATH";
+            this.Load += new System.EventHandler(this.FormMain_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
