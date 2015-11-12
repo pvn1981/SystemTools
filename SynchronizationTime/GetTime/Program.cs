@@ -29,7 +29,7 @@ namespace GetTime
         {
             SystemTime t = new SystemTime();
             GetSystemTime(t);
-            Console.WriteLine(t.Minute);
+            Console.WriteLine("{0}:{1}:{2}.{3}", t.Hour, t.Minute, t.Second, t.Milliseconds);
             Console.ReadLine();
         }
     }
